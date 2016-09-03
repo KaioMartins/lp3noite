@@ -1,0 +1,43 @@
+﻿@model IEnumerable<TodoWeb.Models.Usuario>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container"> 
+        <table class="table table-hover table-striped">
+            <tr>
+                <th>UsuarioId</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Senha</th>
+                <th>Ações</th>
+            </tr>
+            @*foreach (TodoWeb.Models.Usuario u in ViewBag.Usuarios)*@
+            @foreach (var u in Model)
+            { 
+                <tr>
+                    <td>@u.UsuarioId</td>
+                    <td>@u.Nome</td>
+                    <td>@u.Email</td>
+                    <td>@u.Senha</td>
+                    <td>
+                        <a class="btn btn-default" href="/usuario/update/@u.UsuarioId">Editar</a>
+                        <a class="btn btn-default"  href="/usuario/excluir/@u.UsuarioId">Excluir</a>
+                    </td>
+                </tr>
+            }
+        </table>
+
+        <a class="btn btn-primary" href="/usuario/create"><span class="glyphicon glyphicon-plus"> Adicionar</span></a>
+    </div>
+</body>
+</html>

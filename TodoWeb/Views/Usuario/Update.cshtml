@@ -1,0 +1,37 @@
+﻿@model TodoWeb.Models.Usuario
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <form action="/usuario/create" method="post">
+            <div class="form-group">
+                <label>UsuarioId</label>
+                <input type="number" name="UsuarioId" class="form-control" value="@Model.UsuarioId" disabled/>
+            </div>
+            <div class="form-group">
+                <label>Nome</label>
+                <input type="text" name="Nome" required class="form-control" value="@Model.Nome"/>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="Email" required class="form-control" value="@Model.Email"/>
+            </div>
+           
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span>Salvar</button>
+                <a href="/usuario/index" class="btn btn-default" ><span class="glyphicon glyphicon-arrow-left"></span> Cancelar</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
